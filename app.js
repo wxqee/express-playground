@@ -7,12 +7,14 @@ var sassMiddleware = require('node-sass-middleware');
 
 // startup
 var startupExpressSession = require('./startup/startup-express-session');
+var startupMongoose = require('./startup/startup-mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
 
+startupMongoose();
 startupExpressSession(app);
 
 // view engine setup
