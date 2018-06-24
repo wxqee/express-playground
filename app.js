@@ -8,6 +8,7 @@ var sassMiddleware = require('node-sass-middleware');
 // startup
 var startupExpressSession = require('./startup/startup-express-session');
 var startupMongoose = require('./startup/startup-mongoose');
+var startupPassport = require('./startup/startup-passport');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -16,6 +17,7 @@ var app = express();
 
 startupMongoose();
 startupExpressSession(app);
+startupPassport(app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
